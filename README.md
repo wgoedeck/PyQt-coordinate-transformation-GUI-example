@@ -42,7 +42,9 @@ Both input and output data are in the data folder, as seen the list of files, e.
 
 The extra modules and coordinate transformation algorithms are in two files, **coordinate_transformation_class.py** and **extras_class.py** in the folder **shared_modules**, at the same file heirarchy as any other Python projects are at. This way the modules can be shared among any other Python programs that require them. 
 
-<img src="data_converter.png"  width="650" alt="Data Converter">
+<img src="https://github.com/wgoedeck/computer-timeout-preventor/blob/main/arduino_pro_micro.jpg"  width="600" alt="Project photo">
+
+<img src="https://github.com/wgoedeck/PyQt-coordinate-transformation-GUI-example/blob/main/data_converter.png"  width="650" alt="Data Converter">
 
                     Fig. 1. Screenshot of generated GUI.
 
