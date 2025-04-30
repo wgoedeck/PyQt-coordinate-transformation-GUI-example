@@ -1,4 +1,3 @@
-###### Data converter program ######
 import sys, os
 from qtpy import QtWidgets
 
@@ -7,14 +6,6 @@ from ui_data_conversion.mainwindow import Ui_MainWindow
 
 # Use Pandas to import geographic waypoints for local frame (east-north-up) origins.
 import pandas as pd
-
-# Import rasterio function to get geoid heights from Earth Gravitational Model 
-# (EGM) file.
-import rasterio
-from pathlib import Path
-# Set path to EGM gtx file.
-egm_path = Path(os.path.join("proj", "egm08_25.gtx"))
-src = rasterio.open(egm_path)
 
 ## Widen path to import from shared modules folder, which contains the extra 
 # modules that are imported. First create path to modules.
@@ -33,6 +24,22 @@ from coordinate_transform_class import Transform as xfrm
 
 # Import extra functions for data processing and plotting.
 from extras import sec2HMS, kml_rkt_header, kml_dot_array, kml_placemark
+
+# Import rasterio function to get geoid heights from Earth Gravitational Model 
+# (EGM) file.
+import rasterio
+from pathlib import Path
+# Set path to EGM gtx file.
+egm_path = Path(os.path.join("proj", "egm08_25.gtx"))
+try:
+    src = rasterio.open(egm_path)
+    # Set EGM file flag to true, if found.
+    xfrm.egm_file_flag = True
+except: 
+    print("egm08_25.gtx file not found in proj/")
+    print("Can't perform geoid undulation calculations.")
+    # Set EGM file flag to false, if missing.
+    xfrm.egm_file_flag = False
 
 # Instantiate app.
 app = QtWidgets.QApplication(sys.argv)
@@ -72,6 +79,14 @@ class mainWindow(QtWidgets.QMainWindow):
         self.ui_data_conversion.radBtnOutputKML.clicked.connect(self.set_output_file_type_kml)
         self.ui_data_conversion.radBtnOutputECI_to_ECEF.clicked.connect(self.set_output_file_type_ecef)
         
+        # If geoid undulation file is not found, disable LLE radiobuttons. 
+        if xfrm.egm_file_flag == True: 
+            self.ui_data_conversion.radBtnInputLLE.setEnabled(True)
+            self.ui_data_conversion.radBtnOutputLLE.setEnabled(True)
+        else: 
+            self.ui_data_conversion.radBtnInputLLE.setEnabled(False)
+            self.ui_data_conversion.radBtnOutputLLE.setEnabled(False)
+
         # Simplify the input reference frame origin combo box object name.
         self.in_cb = self.ui_data_conversion.comboBoxInputRef
         # Connect input reference frame combo box with selectionchange routine.
@@ -209,7 +224,11 @@ class mainWindow(QtWidgets.QMainWindow):
         self.ui_data_conversion.radBtnOutputLLH.setEnabled(False)
         
         # Enable these output selections.
-        self.ui_data_conversion.radBtnOutputLLE.setEnabled(True)
+        # If geoid undulation file is not found, disable LLE radiobutton. 
+        if xfrm.egm_file_flag == True: 
+            self.ui_data_conversion.radBtnOutputLLE.setEnabled(True)
+        else: 
+            self.ui_data_conversion.radBtnOutputLLE.setEnabled(False)
         self.ui_data_conversion.radBtnOutputEFG.setEnabled(True)
         self.ui_data_conversion.radBtnOutputKML.setEnabled(True)
         self.ui_data_conversion.txtTrackpointSize.setEnabled(True)
@@ -244,7 +263,11 @@ class mainWindow(QtWidgets.QMainWindow):
 
         # Enable these output selections.
         self.ui_data_conversion.radBtnOutputLLH.setEnabled(True)
-        self.ui_data_conversion.radBtnOutputLLE.setEnabled(True)
+        # If geoid undulation file is not found, disable LLE radiobutton. 
+        if xfrm.egm_file_flag == True: 
+            self.ui_data_conversion.radBtnOutputLLE.setEnabled(True)
+        else: 
+            self.ui_data_conversion.radBtnOutputLLE.setEnabled(False)
 
         # Disable these output selections.
         self.ui_data_conversion.radBtnOutputKML.setEnabled(False)
@@ -257,7 +280,13 @@ class mainWindow(QtWidgets.QMainWindow):
         xfrm.input_file_type = "enu"
         # Enable these output selections.
         self.ui_data_conversion.radBtnOutputLLH.setEnabled(True)
-        self.ui_data_conversion.radBtnOutputLLE.setEnabled(True)
+        
+        # If geoid undulation file is not found, disable LLE radiobutton. 
+        if xfrm.egm_file_flag == True: 
+            self.ui_data_conversion.radBtnOutputLLE.setEnabled(True)
+        else: 
+            self.ui_data_conversion.radBtnOutputLLE.setEnabled(False)
+
         self.ui_data_conversion.radBtnOutputEFG.setEnabled(True)
 
         # Disable these output selections.
