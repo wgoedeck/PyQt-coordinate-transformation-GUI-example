@@ -13,15 +13,6 @@ I originally created GUIs in MatLab, but desired an open source computer languag
 ### Installation and initialization <a class="anchor" id="installation_and_initialization"></a>
 In forking, cloning, or downloading this project I would suggest creating a file structure as I have done here:
 
-<style>
-r { color: Red }
-o { color: Orange }
-g { color: Green }
-n { color: navy }
-</style>
-
-Note: <n>**dark blue**</n> indicates directories or folders, while plain text are files.
-
 - ## <n>python_projects</n>
     - ### <n>data_conversion</n>
         - #### <n>data</n>
