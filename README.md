@@ -40,7 +40,7 @@ Running **build.py** will compile the PyQt code that creates the graphical user 
 
 Both input and output data are in the data folder, as seen the list of files, e.g., ***balloon_launch.lle*** (an input file), ***balloon_launch-lle.llh*** (an output file), etc. 
 
-The proj directory should contain the geoid undulation data file, **egm08_25.gtx**, that will provide the value of the undulation (above mean sea level) in height above ellipsoid (HAE) at a particular latitude and longitude. I do not provide the file in the repository since it is large, 149.3 MBytes, beyond what GitHub allows. This file can be obtained from **https://download.osgeo.org/proj/vdatum/egm08_25/**, and at **https://github.com/OSGeo/proj-datumgrid/blob/master/world/egm08_25.gtx**. Once the file is obtained, put it in the **proj/** directory. The GUIs other functions will work, but not any algorithms that process LLE (latitude-longitude-elevation) files. 
+The **proj** directory should contain the geoid undulation data file, **egm08_25.gtx**, that will provide the value of the undulation (above mean sea level) in height above ellipsoid (HAE) at a particular latitude and longitude. I do not provide the file in the repository since it is large, 149.3 MBytes, beyond what GitHub allows. This file can be obtained from **https://download.osgeo.org/proj/vdatum/egm08_25/**, and at **https://github.com/OSGeo/proj-datumgrid/blob/master/world/egm08_25.gtx**. Once the file is obtained, put it in the **proj/** directory. The GUIs other functions will work, but not any algorithms that process LLE (latitude-longitude-elevation) files. 
 
 The extra modules and coordinate transformation algorithms are in two files, **coordinate_transformation_class.py** and **extras_class.py** in the folder **shared_modules**, at the same file heirarchy as any other Python projects are at. This way the modules can be shared among any other Python programs that require them. 
 
@@ -73,7 +73,7 @@ generates output file *.lle:
 
 Note how the latitudes and longitudes are unchanged, but the heights are, since the level of the ellipsoid at those coordinates is above the geoid by about 30 meters, or 100 feet. 
 
-Other transforms are available, including ECEF E-F-G, which is a transformation to Cartesian coordinates from the center of the Earth: E is the axis towards the Grenwich Meridian at the equator; F is towards the 90<sup>0</sup> meridian at the equator, and G is towards the north pole. 
+Other transforms are available, including ECEF E-F-G, which is a transformation to Cartesian coordinates from the center of the Earth: E is the axis towards the Greenwich Meridian at the equator; F is towards the 90<sup>0</sup> meridian at the equator, and G is towards the north pole. 
 
 Also, KML (Keyhole Markup Language) files can be generated from either LLH or LLE input files; the generated KML files can be input into a GIS program to plot the path of the geographic data points. 
 
