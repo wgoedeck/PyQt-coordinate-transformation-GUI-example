@@ -42,11 +42,7 @@ Both input and output data are in the data folder, as seen the list of files, e.
 
 The extra modules and coordinate transformation algorithms are in two files, **coordinate_transformation_class.py** and **extras_class.py** in the folder **shared_modules**, at the same file heirarchy as any other Python projects are at. This way the modules can be shared among any other Python programs that require them. 
 
-<img src="https://github.com/wgoedeck/computer-timeout-preventor/blob/main/arduino_pro_micro.jpg"  width="600" alt="Project photo">
-
 <img src="https://github.com/wgoedeck/PyQt-coordinate-transformation-GUI-example/blob/main/images/data_converter.png"  width="650" alt="Data Converter">
-![Data Converter](images/data_converter.png)
-
                     Fig. 1. Screenshot of generated GUI.
 
 ### Program operation <a class="anchor" id="program_operation"></a>
@@ -84,8 +80,7 @@ Note how when an input category is selected, certain output selections are graye
 
 Note as well that unless the input **ENU** option is selected, the **Input Reference Frame** combination box is grayed-out, and unless the output **ENU** option is selected, the **Output Reference Frame** combination box is grayed-out. 
 
-<img src="data_converter2.png"  width="650" alt="Data Converter">
-
+<img src="https://github.com/wgoedeck/PyQt-coordinate-transformation-GUI-example/blob/main/images/data_converter2.png"  width="650" alt="Data Converter">
         Fig. 2. GUI, with E-F-G input selected, and ENU output selected.
 
 ### Program description <a class="anchor" id="program_description"></a>
@@ -100,8 +95,7 @@ When a particular widget is selected from the Designer GUI, the properties are d
 
 **QT Designer** creates an XML file, **mainwindow.ui**, that is then compiled within the Python IDE to create the file that generates the interactive GUI, **mainwindow.py**.
 
-<img src="qt_designer.png"  width="800" alt="Qt Designer">
-
+<img src="https://github.com/wgoedeck/PyQt-coordinate-transformation-GUI-example/blob/main/images/qt_designer.png"  width="800" alt="Qt Designer">
                                     Fig. 3. Qt Designer GUI.
 
 #### Python program <a class="anchor" id="python_program"></a>
