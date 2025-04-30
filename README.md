@@ -162,32 +162,32 @@ The time of the first data line is stored for later computation of the duration 
 
 Each line's time, x, y, and z component is read, and then the appropriated algorithm computes the output file data. The choices of input data types to output file-type selections is listed here: 
 
-Note: <n>**dark blue**</n> indicates input file choices, while plain text are output file choices allowed for the particular input choice.
+Note: **bold** indicates input file choices, while plain text are output file choices allowed for the particular input choice.
 
-- #### <n>latitude-longitude-HAE (LLH)</n>
-    - #### latitude-longitude-elevation (LLE)
-    - #### Cartesian coordinates (EFG)
-    - #### Keyhole Markup Language (KML)
-    - #### ECI to Earth-centered-Earth-fixed (ECEF)
-    - #### local Cartesian coordinates (ENU)
+- #### latitude-longitude-HAE (LLH)
+    - latitude-longitude-elevation (LLE)
+    - Cartesian coordinates (EFG)
+    - Keyhole Markup Language (KML)
+    - ECI to Earth-centered-Earth-fixed (ECEF)
+    - local Cartesian coordinates (ENU)
 
-- #### <n>latitude-longitude-elevation (LLE)</n>
-    - #### latitude-longitude-HAE (LLH)
-    - #### Cartesian coordinates (EFG)
-    - #### Keyhole Markup Language (KML)
-    - #### ECI to Earth-centered-Earth-fixed (ECEF)
-    - #### local Cartesian coordinates (ENU)
+- #### latitude-longitude-elevation (LLE)
+    - latitude-longitude-HAE (LLH)
+    - Cartesian coordinates (EFG)
+    - Keyhole Markup Language (KML)
+    - ECI to Earth-centered-Earth-fixed (ECEF)
+    - local Cartesian coordinates (ENU)
 
-- #### <n>ECEF EFG (EFG)</n>
-    - #### latitude-longitude-HAE (LLH)
-    - #### latitude-longitude-elevation (LLE)
-    - #### local Cartesian coordinates (ENU)
+- #### ECEF EFG (EFG)
+    - latitude-longitude-HAE (LLH)
+    - latitude-longitude-elevation (LLE)
+    - local Cartesian coordinates (ENU)
 
-- #### <n>east-north-up (ENU)</n>
-    - #### latitude-longitude-HAE (LLH)
-    - #### latitude-longitude-elevation (LLE)
-    - #### Cartesian coordinates (EFG)
-    - #### local Cartesian coordinates (ENU)
+- #### east-north-up (ENU)
+    - latitude-longitude-HAE (LLH)
+    - latitude-longitude-elevation (LLE)
+    - Cartesian coordinates (EFG)
+    - local Cartesian coordinates (ENU)
 
 Note that an east-north-up input file can generate an east-north-up output file since the local origin may be different between the input and output. 
 
