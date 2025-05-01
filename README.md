@@ -13,26 +13,28 @@ I originally created GUIs in MatLab, but desired an open source computer languag
 ### Installation and initialization <a class="anchor" id="installation_and_initialization"></a>
 In forking, cloning, or downloading this project I would suggest creating a file structure as I have done here:
 
-- ## <n>python_projects</n>
-    - ### <n>data_conversion</n>
-        - #### <n>data</n>
+Note: <n>**bold**</n> indicates directories or folders, while plain text are files.
+
+- ## python_projects
+    - ### data_conversion
+        - #### data
             - balloon_launch.lle
             - balloon_launch-lle.llh
             - balloon_launch-lle.kml
-        - #### <n>ui_data_conversion</n>
-            - ##### mainwindow.py
-            - ##### mainwindow.ui
-        - #### <n>proj</n>
-            - ##### egm08_25.gtx
+        - #### ui_data_conversion
+            - mainwindow.py
+            - mainwindow.ui
+        - #### proj
+            - egm08_25.gtx
         - #### build.py
         - #### dataconversion.cfg
         - #### main.py
-    - ### <n>... *other python projects*</n>
-    - ### <n>shared_modules</n>
+    - ### ... *other python projects*
+    - ### shared_modules
         - #### coordinate_transformation_class.py
         - #### extras_class.py
         - #### ... *other modules*
-- ## <n>... *other projects*</n>
+- ## ... *other projects*
 
 **data_conversion** is the project folder that holds the Python project repository. I typically use the Spyder IDE for most of my projects. When one invokes **main.py**, the GUI is created, and data files can be processed. The configuration file, **dataconversion.cfg**, contains the previous settings when the program was used, so that the values from the previous session will populate the fields when the application is reopened. 
 
@@ -57,10 +59,10 @@ In this example, as shown in Figure 1, a file with time, latitude, longitude, an
 
 The input file *.llh: 
 
-	time     latitude(deg)         longitude(deg)             HAE(m)
+	time     latitude(deg)     longitude(deg)     HAE(m)
 	  0        34.583672		-115.875719		  233.000
-	  2        34.583583		-115.875607		  239.141
-	  4	   34.583493		-115.875495		  245.282
+	  2		   34.583583		-115.875607		  239.141
+	  4		   34.583493		-115.875495		  245.282
   ...
 
 generates output file *.lle: 
@@ -75,7 +77,12 @@ Note how the latitudes and longitudes are unchanged, but the heights are, since 
 
 Other transforms are available, including ECEF E-F-G, which is a transformation to Cartesian coordinates from the center of the Earth: E is the axis towards the Greenwich Meridian at the equator; F is towards the 90<sup>0</sup> meridian at the equator, and G is towards the north pole. 
 
-Also, KML (Keyhole Markup Language) files can be generated from either LLH or LLE input files; the generated KML files can be input into a GIS program to plot the path of the geographic data points. 
+Also, KML (Keyhole Markup Language) files can be generated from either LLH or LLE input files; the generated KML files can be input into a GIS program to plot the path of the geographic data points. Figures 2a and 2b show such plots of the example data. By selecting any dot, features can be embedded, such as the time and coordinates, as seen in Figure 2b. 
+
+<img src="images/balloon_trace.png"  width="650" alt="KML file plot">
+<img src="images/balloon_trace_closeup.png"  width="650" alt="KML file plot">
+
+                    Figures 2a & 2b. Results of plotting a KML file on Google Earth, and closeup, showing selection of a KML "dot."
 
 The local E-N-U (east-north-up) coordinate frame references a local origin with coordinates east, north, and up in meters from the origin. The geographical coordinates of the origin must be specified, as is possible from the **Input Reference Frame** and **Output Reference Frame** combination boxes. 
 
@@ -85,7 +92,7 @@ Note as well that unless the input **ENU** option is selected, the **Input Refer
 
 <img src="images/data_converter2.png"  width="650" alt="Data Converter">
 
-        Fig. 2. GUI, with E-F-G input selected, and ENU output selected.
+        Fig. 3. GUI, with E-F-G input selected, and ENU output selected.
 
 ### Program description <a class="anchor" id="program_description"></a>
 Here is a description of the inner workings of the program.
@@ -101,7 +108,7 @@ When a particular widget is selected from the Designer GUI, the properties are d
 
 <img src="images/qt_designer.png"  width="800" alt="Qt Designer">
 
-                                    Fig. 3. Qt Designer GUI.
+                                    Fig. 4. Qt Designer GUI.
 
 #### Python program <a class="anchor" id="python_program"></a>
 Running the **build.py** program, shown below, in the project root directory **data_conversion** compiles the **mainwindow.ui** XML file to create a Python file, **mainwindow.py**:
