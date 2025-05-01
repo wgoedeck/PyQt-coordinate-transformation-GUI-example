@@ -77,22 +77,25 @@ Note how the latitudes and longitudes are unchanged, but the heights are, since 
 
 Other transforms are available, including ECEF E-F-G, which is a transformation to Cartesian coordinates from the center of the Earth: E is the axis towards the Greenwich Meridian at the equator; F is towards the 90<sup>0</sup> meridian at the equator, and G is towards the north pole. 
 
-Also, KML (Keyhole Markup Language) files can be generated from either LLH or LLE input files; the generated KML files can be input into a GIS program to plot the path of the geographic data points. Figures 2a and 2b show such plots of the example data. By selecting any dot, features can be embedded, such as the time and coordinates, as seen in Figure 2b. 
+Also, KML (Keyhole Markup Language) files can be generated from either LLH or LLE input files; the generated KML files can be input into a GIS program to plot the path of the geographic data points, as seen in Figure 2, a plot of the example data. By selecting any dot, features can be embedded, such as the time and coordinates, as seen in Figure 3. 
 
-<img src="images/balloon_trace.png"  width="650" alt="KML file plot">
-<img src="images/balloon_trace_closeup.png"  width="650" alt="KML file plot">
+<img src="images/balloon_trace.png"  width="800" alt="KML file plot">
 
-                    Figures 2a & 2b. Results of plotting a KML file on Google Earth, and closeup, showing selection of a KML "dot."
+                Figure 2. Results of plotting a KML file on Google Earth.
+
+<img src="images/balloon_trace_closeup.png"  width="800" alt="KML file plot">
+
+                Figure 3. KML plot closeup, showing selection of a KML "dot."
 
 The local E-N-U (east-north-up) coordinate frame references a local origin with coordinates east, north, and up in meters from the origin. The geographical coordinates of the origin must be specified, as is possible from the **Input Reference Frame** and **Output Reference Frame** combination boxes. 
 
-Note how when an input category is selected, certain output selections are grayed-out, see Figure 2. This added feature prevents one from selecting an input-output pair that has no corresponding algorithm to allow processing. Also, when an input category is selected, the corresponding output category on the GUI is grayed-out, since this would only return the same data file. 
+Note how when an input category is selected, certain output selections are grayed-out, see Figure 4. This added feature prevents one from selecting an input-output pair that has no corresponding algorithm to allow processing. Also, when an input category is selected, the corresponding output category on the GUI is grayed-out, since this would only return the same data file. 
 
 Note as well that unless the input **ENU** option is selected, the **Input Reference Frame** combination box is grayed-out, and unless the output **ENU** option is selected, the **Output Reference Frame** combination box is grayed-out. 
 
 <img src="images/data_converter2.png"  width="650" alt="Data Converter">
 
-        Fig. 3. GUI, with E-F-G input selected, and ENU output selected.
+        Fig. 4. GUI, with E-F-G input selected, and ENU output selected.
 
 ### Program description <a class="anchor" id="program_description"></a>
 Here is a description of the inner workings of the program.
@@ -100,7 +103,7 @@ Here is a description of the inner workings of the program.
 #### Qt Designer <a class="anchor" id="qt_designer"></a>
 **Qt Designer**, a WYSIWYG Python GUI creator that allows manipulation of PyQt code to design very useful GUIs for a variety of applications. I have used Qt Designer for all my Python GUIs that help me process data in a streamlined manner. 
 
-The current designer layout for the coordinate conversion program is shown in Figure 3. Among the widgets, one can see a menu, text-boxes, radio-buttons, check-boxes, combination boxes with choices, and a push-button. Within Qt Designer these widgets can be moved around, copies made and put elsewhere, and the their properties changed,or more widgets added by the toolbar on the left. 
+The current designer layout for the coordinate conversion program is shown in Figure 5. Among the widgets, one can see a menu, text-boxes, radio-buttons, check-boxes, combination boxes with choices, and a push-button. Within Qt Designer these widgets can be moved around, copies made and put elsewhere, and the their properties changed,or more widgets added by the toolbar on the left. 
 
 When a particular widget is selected from the Designer GUI, the properties are displayed at the **Object Inspector** panel, as well as the **Property Editor** panel below it. Widget characteristics can be changed, such as text, font size and color, and position. Widgets are labeled so as to link them to the Python program in a signal-to-slot manner, e.g., ***radBtnOutputKML***, the radio-button that selects the output as KML. 
 
@@ -108,7 +111,7 @@ When a particular widget is selected from the Designer GUI, the properties are d
 
 <img src="images/qt_designer.png"  width="800" alt="Qt Designer">
 
-                                    Fig. 4. Qt Designer GUI.
+                                    Fig. 5. Qt Designer GUI.
 
 #### Python program <a class="anchor" id="python_program"></a>
 Running the **build.py** program, shown below, in the project root directory **data_conversion** compiles the **mainwindow.ui** XML file to create a Python file, **mainwindow.py**:
